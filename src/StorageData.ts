@@ -1,4 +1,4 @@
-import { IsHexColor, IsInt, Min, Max } from "class-validator";
+import { Matches, IsInt, Min, Max } from "class-validator";
 
 export interface IStorageData {
   color: string;
@@ -15,7 +15,7 @@ export default class StorageData implements IStorageData {
     Object.assign(this, props);
   }
 
-  @IsHexColor()
+  @Matches(/^#([0-9A-F]{3}|[0-9A-F]{6})$/i)
   color: string = "#0f0";
 
   static readonly minHue = -5;
