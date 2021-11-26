@@ -1,0 +1,39 @@
+- const IS_DEV = process.env.NODE_ENV === "development"
+
+doctype html
+html(lang="en")
+  head
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chromakey Screen</title>
+    if IS_DEV
+      script(
+        src="https://unpkg.com/react@17/umd/react.development.js",
+        defer,
+        crossorigin
+      )
+      script(
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js",
+        defer,
+        crossorigin
+      )
+    else 
+      script(
+        src="https://polyfill.io/v3/polyfill.min.js?features=es2015,Symbol",
+        defer,
+        crossorigin
+      )
+      script(
+        src="https://unpkg.com/react@17/umd/react.production.min.js",
+        defer,
+        crossorigin
+      )
+      script(
+        src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js",
+        defer,
+        crossorigin
+      )
+    script(src="index.tsx", defer, type="module")
+  body
+    #root

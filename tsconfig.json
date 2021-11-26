@@ -1,0 +1,38 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    /* Handle tilde dependency specifiers */
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["*"]
+    },
+    /* Meaningless options because Parcel just strips TypeScript syntax */
+    // "module": "esnext",
+    // "target": "esnext",
+    /* Handle JSX/TSX */
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
+    /* Enable all strict TypeScript options */
+    "strict": true,
+    /* This option is required because Parcel processes each file individually */
+    "isolatedModules": true,
+    /* Handle module resolution */
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    /* Skip type-checking for declaration files */
+    "skipLibCheck": true,
+    /* Plugins for IDE (not for type-checking script `tsc --noEmit`) */
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.(c|le|sa|sc)ss$",
+          "classnameTransform": "dashesOnly"
+        }
+      }
+    ]
+  }
+}
