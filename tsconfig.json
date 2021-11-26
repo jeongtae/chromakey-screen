@@ -1,7 +1,6 @@
 {
   "include": ["src/**/*"],
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     /* Handle tilde dependency specifiers */
     "baseUrl": ".",
