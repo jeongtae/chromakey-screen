@@ -64,7 +64,7 @@ const AdjustsPanel: React.VFC<AdjustsPanelProps> = (props) => {
         onClickDecrease={() => {
           if (isCustomColorMode) {
             dispatch(
-              setCustomColorHSL({ ...customColorHSL, hue: (customColorHSL.hue - 10) % 360 })
+              setCustomColorHSL({ ...customColorHSL, hue: (customColorHSL.hue - 10 + 360) % 360 })
             );
           } else if (currentColorHSLAdjustment) {
             dispatch(
