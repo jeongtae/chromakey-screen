@@ -1,0 +1,21 @@
+@use "../../theme";
+
+.container {
+  display: block;
+  padding: 6px;
+  transition: transform 50ms ease-in-out;
+  color: theme.$light-text;
+  border: none;
+  background: none;
+  &:hover {
+    color: theme.$light-highlight-text;
+    cursor: pointer;
+  }
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+  &:disabled {
+    color: theme.$light-disabled-text;
+    cursor: default;
+  }
+}

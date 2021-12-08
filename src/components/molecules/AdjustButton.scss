@@ -1,0 +1,18 @@
+.container {
+  display: grid;
+  grid-template:
+    "a b" auto
+    "c d" auto
+    "e f" auto
+    / 30px auto;
+  place-items: center;
+  > span {
+    display: block;
+    text-align: center;
+  }
+  @for $i from 1 through 6 {
+    > *:nth-child(#{$i}) {
+      grid-area: nth(a b c d e f, $i);
+    }
+  }
+}

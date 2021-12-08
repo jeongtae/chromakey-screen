@@ -1,0 +1,21 @@
+@use "../../theme";
+
+.container {
+  font-size: 18px;
+
+  &.small {
+    font-size: 12px;
+  }
+
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.light {
+    color: theme.$light-text;
+  }
+  &.dark {
+    color: rgba(#000, 30%);
+    color: theme.$dark-text;
+  }
+}

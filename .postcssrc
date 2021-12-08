@@ -1,7 +1,7 @@
 {
   "modules": true,
   "plugins": {
-    // "postcss-import": {},
+    "postcss-import": {},
     // "postcss-url": {},
     "postcss-modules": {
       "generateScopedName": "_[name]__[local]__[hash:base62:6]",

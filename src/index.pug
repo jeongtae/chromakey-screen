@@ -7,6 +7,7 @@ html(lang="en")
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chromakey Screen</title>
+    script(src="polyfills.ts", defer, type="module")
     if IS_DEV
       script(
         src="https://unpkg.com/react@17/umd/react.development.js",
@@ -20,7 +21,7 @@ html(lang="en")
       )
     else 
       script(
-        src="https://polyfill.io/v3/polyfill.min.js?features=es2015,Symbol",
+        src="https://polyfill.io/v3/polyfill.min.js?features=es2015,es2016,es2017,es2019,Symbol",
         defer,
         crossorigin
       )
