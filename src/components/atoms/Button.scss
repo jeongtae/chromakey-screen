@@ -1,7 +1,7 @@
 @use "../../theme";
 
 .container {
-  display: block;
+  display: inline-block;
   padding: 6px;
   transition: transform 50ms ease-in-out;
   color: theme.$light-text;

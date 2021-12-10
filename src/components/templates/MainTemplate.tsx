@@ -45,15 +45,17 @@ const MainTemplate = () => {
         exitDone: classes.uiExitDone,
       }}
     >
-      <Flex ref={nodeRef} height="100vh" flexDirection="column" justifyContent={"space-between"}>
-        <Flex padding={4}>
+      <div className={classes.ui} ref={nodeRef}>
+        <div className={classes.fixedTop}>
           <IconButton icons="24_GITHUB" href={GITHUB_REPO_URL} />
-        </Flex>
-        <Flex justifyContent="space-around">
+        </div>
+        <div className={classes.fixedCenter}>
           <Span color="dark">{colorHex}</Span>
-        </Flex>
-        <MenuBar />
-      </Flex>
+        </div>
+        <div className={classes.fixedBottom}>
+          <MenuBar />
+        </div>
+      </div>
     </CSSTransition>
   );
 };
