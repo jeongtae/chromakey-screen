@@ -25,7 +25,7 @@ const MainTemplate = () => {
     return () => {
       window.removeEventListener("mouseup", handle);
       window.removeEventListener("touchend", handle);
-      window.addEventListener("keypress", handle);
+      window.removeEventListener("keypress", handle);
     };
   }, [isUIHidden]);
 
