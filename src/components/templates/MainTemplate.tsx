@@ -27,7 +27,7 @@ const MainTemplate = () => {
       window.removeEventListener("touchend", handle);
       window.removeEventListener("keypress", handle);
     };
-  }, [isUIHidden]);
+  }, []);
 
   const nodeRef = useRef(null);
   return (
