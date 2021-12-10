@@ -12,6 +12,7 @@ export interface ButtonsPanelProps {
 const ButtonsPanel: React.VFC<ButtonsPanelProps> = (props) => {
   const dispatch = useDispatch();
   const currentColorType = useSelector((state: AppState) => state.currentColorType);
+  const isUIHidden = useSelector((state: AppState) => state.isUIHidden ?? false);
 
   return (
     <Flex gap={2} padding={props.padding}>
@@ -19,7 +20,7 @@ const ButtonsPanel: React.VFC<ButtonsPanelProps> = (props) => {
         hotKeys={"1"}
         icons="24_NO1_BG"
         text="Green"
-        disabled={currentColorType === "green"}
+        disabled={currentColorType === "green" || isUIHidden}
         onClick={() => dispatch(setColorType("green"))}
       />
       <FlexGap />
@@ -27,7 +28,7 @@ const ButtonsPanel: React.VFC<ButtonsPanelProps> = (props) => {
         hotKeys={"2"}
         icons="24_NO2_BG"
         text="Blue"
-        disabled={currentColorType === "blue"}
+        disabled={currentColorType === "blue" || isUIHidden}
         onClick={() => dispatch(setColorType("blue"))}
       />
       <FlexGap />
@@ -35,7 +36,7 @@ const ButtonsPanel: React.VFC<ButtonsPanelProps> = (props) => {
         hotKeys={"3"}
         icons="24_NO3_BG"
         text="Custom"
-        disabled={currentColorType === "custom"}
+        disabled={currentColorType === "custom" || isUIHidden}
         onClick={() => dispatch(setColorType("custom"))}
       />
       <FlexGap />
@@ -43,6 +44,7 @@ const ButtonsPanel: React.VFC<ButtonsPanelProps> = (props) => {
         hotKeys={"0"}
         icons="24_NO0_BG"
         text="Hide UI"
+        disabled={isUIHidden}
         onClick={() => dispatch(hideUI())}
       />
     </Flex>

@@ -12,7 +12,7 @@ export interface FlexProps
   gap?: string | number;
 }
 
-const Flex: React.FC<FlexProps> = (props) => {
+const Flex = React.forwardRef<HTMLDivElement, React.PropsWithChildren<FlexProps>>((props, ref) => {
   const { children, gap, ...styleProps } = props;
   const style: React.CSSProperties = {
     display: "flex",
@@ -25,10 +25,13 @@ const Flex: React.FC<FlexProps> = (props) => {
         direction: props.flexDirection?.includes("column") ? "column" : "row",
       }}
     >
-      <div style={style}>{children}</div>
+      <div ref={ref} style={style}>
+        {children}
+      </div>
     </FlexContext.Provider>
   );
-};
+});
+Flex.displayName = "Flex";
 
 export default Flex;
 

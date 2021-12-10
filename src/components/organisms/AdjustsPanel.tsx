@@ -13,6 +13,7 @@ export interface AdjustsPanelProps {
 
 const AdjustsPanel: React.VFC<AdjustsPanelProps> = (props) => {
   const dispatch = useDispatch();
+  const isUIHidden = useSelector((state: AppState) => state.isUIHidden ?? false);
   const currentColorType = useSelector((state: AppState) => state.currentColorType);
   const currentColorHSLAdjustment: HSL | null = useSelector((state: AppState) => {
     if (state.currentColorType === "custom") {
@@ -42,10 +43,12 @@ const AdjustsPanel: React.VFC<AdjustsPanelProps> = (props) => {
       <AdjustButton
         value={isCustomColorMode ? customColorHSL.hue : currentColorHSL[0]}
         disabledIncrease={
-          isCustomColorMode ? false : currentColorHSLAdjustment!.hue >= CONST.HSL_ADJ_HUE_MAX
+          isUIHidden ||
+          (isCustomColorMode ? false : currentColorHSLAdjustment!.hue >= CONST.HSL_ADJ_HUE_MAX)
         }
         disabledDecrease={
-          isCustomColorMode ? false : currentColorHSLAdjustment!.hue <= CONST.HSL_ADJ_HUE_MIN
+          isUIHidden ||
+          (isCustomColorMode ? false : currentColorHSLAdjustment!.hue <= CONST.HSL_ADJ_HUE_MIN)
         }
         onClickIncrease={() => {
           if (isCustomColorMode) {
@@ -86,14 +89,16 @@ const AdjustsPanel: React.VFC<AdjustsPanelProps> = (props) => {
       <AdjustButton
         value={isCustomColorMode ? customColorHSL.saturation : currentColorHSL[1]}
         disabledIncrease={
-          isCustomColorMode
+          isUIHidden ||
+          (isCustomColorMode
             ? customColorHSL.saturation >= 100
-            : currentColorHSLAdjustment!.saturation >= CONST.HSL_ADJ_SATURATION_MAX
+            : currentColorHSLAdjustment!.saturation >= CONST.HSL_ADJ_SATURATION_MAX)
         }
         disabledDecrease={
-          isCustomColorMode
+          isUIHidden ||
+          (isCustomColorMode
             ? customColorHSL.saturation <= 0
-            : currentColorHSLAdjustment!.saturation <= CONST.HSL_ADJ_SATURATION_MIN
+            : currentColorHSLAdjustment!.saturation <= CONST.HSL_ADJ_SATURATION_MIN)
         }
         onClickIncrease={() => {
           if (isCustomColorMode) {
@@ -140,14 +145,16 @@ const AdjustsPanel: React.VFC<AdjustsPanelProps> = (props) => {
       <AdjustButton
         value={isCustomColorMode ? customColorHSL.lightness : currentColorHSL[2]}
         disabledIncrease={
-          isCustomColorMode
+          isUIHidden ||
+          (isCustomColorMode
             ? customColorHSL.lightness >= 100
-            : currentColorHSLAdjustment!.lightness >= CONST.HSL_ADJ_LIGHTNESS_MAX
+            : currentColorHSLAdjustment!.lightness >= CONST.HSL_ADJ_LIGHTNESS_MAX)
         }
         disabledDecrease={
-          isCustomColorMode
+          isUIHidden ||
+          (isCustomColorMode
             ? customColorHSL.lightness <= 0
-            : currentColorHSLAdjustment!.lightness <= CONST.HSL_ADJ_LIGHTNESS_MIN
+            : currentColorHSLAdjustment!.lightness <= CONST.HSL_ADJ_LIGHTNESS_MIN)
         }
         onClickIncrease={() => {
           if (isCustomColorMode) {

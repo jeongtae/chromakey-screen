@@ -1,0 +1,22 @@
+.ui {
+  &-enter {
+    opacity: 0;
+    &-active,
+    &-done {
+      opacity: 1;
+    }
+    &-active {
+      transition: opacity 200ms ease-in-out;
+    }
+  }
+  &-exit {
+    opacity: 1;
+    &-active,
+    &-done {
+      opacity: 0;
+    }
+    &-active {
+      transition: opacity 200ms ease-in-out;
+    }
+  }
+}
