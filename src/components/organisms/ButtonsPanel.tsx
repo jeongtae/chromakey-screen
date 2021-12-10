@@ -5,9 +5,7 @@ import { AppState, hideUI, setColorType } from "~/src/store";
 import Flex, { FlexGap } from "../atoms/Flex";
 import IconButton from "../molecules/IconButton";
 
-export interface ButtonsPanelProps {
-  padding: React.CSSProperties["padding"];
-}
+export interface ButtonsPanelProps {}
 
 const ButtonsPanel: React.VFC<ButtonsPanelProps> = (props) => {
   const dispatch = useDispatch();
@@ -15,7 +13,7 @@ const ButtonsPanel: React.VFC<ButtonsPanelProps> = (props) => {
   const isUIHidden = useSelector((state: AppState) => state.isUIHidden ?? false);
 
   return (
-    <Flex gap={2} padding={props.padding}>
+    <Flex gap={2}>
       <IconButton
         hotKeys={"1"}
         icons="24_NO1_BG"

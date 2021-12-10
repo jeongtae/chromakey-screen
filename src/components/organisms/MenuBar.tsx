@@ -6,9 +6,9 @@ import ButtonsPanel from "./ButtonsPanel";
 
 const MenuBar = () => {
   return (
-    <Flex justifyContent="space-between" flexWrap="wrap-reverse" alignItems="flex-start">
-      <ButtonsPanel padding="0 4px 4px 4px" />
-      <AdjustsPanel padding="0 4px 4px 4px" />
+    <Flex justifyContent="space-between" flexWrap="wrap" alignItems="flex-end">
+      <ButtonsPanel />
+      <AdjustsPanel />
     </Flex>
   );
 };

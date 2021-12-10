@@ -7,11 +7,9 @@ import { AppState, HSL, setCustomColorHSL, setNonCustomColorHSLAdjustment } from
 import Flex, { FlexGap } from "../atoms/Flex";
 import AdjustButton from "../molecules/AdjustButton";
 
-export interface AdjustsPanelProps {
-  padding: React.CSSProperties["padding"];
-}
+export interface AdjustsPanelProps {}
 
-const AdjustsPanel: React.VFC<AdjustsPanelProps> = (props) => {
+const AdjustsPanel: React.VFC<AdjustsPanelProps> = () => {
   const dispatch = useDispatch();
   const isUIHidden = useSelector((state: AppState) => state.isUIHidden ?? false);
   const currentColorType = useSelector((state: AppState) => state.currentColorType);
@@ -39,7 +37,7 @@ const AdjustsPanel: React.VFC<AdjustsPanelProps> = (props) => {
   const isCustomColorMode = currentColorType === "custom";
 
   return (
-    <Flex gap={2} padding={props.padding}>
+    <Flex gap={2}>
       <AdjustButton
         value={isCustomColorMode ? customColorHSL.hue : currentColorHSL[0]}
         disabledIncrease={

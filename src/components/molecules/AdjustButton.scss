@@ -6,9 +6,10 @@
     "e f" auto
     / 30px auto;
   place-items: center;
-  > span {
-    display: block;
-    text-align: center;
+  > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   @for $i from 1 through 6 {
     > *:nth-child(#{$i}) {
