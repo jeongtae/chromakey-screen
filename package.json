@@ -16,14 +16,10 @@
       "global": "ReactDOM"
     }
   },
-  "targets": {
-    "default": {
-      "publicUrl": "/chromakey-screen"
-    }
-  },
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
+    "build": "parcel build --public-url='/chromakey-screen'",
+    "build:no-public-url": "parcel build",
     "serve": "sirv dist -dH",
     "check": "tsc --noEmit",
     "clean": "run-p clean:*",
